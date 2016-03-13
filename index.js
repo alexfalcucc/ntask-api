@@ -1,10 +1,10 @@
 import express from "express";
 import consign from "consign";
-const PORT = 3000;
 
 const app = express();
 
 consign()
+    .include("libs/config.js")
     .include("db.js")
     .then("models")
     .then("libs/middlewares.js")
