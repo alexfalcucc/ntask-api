@@ -5,8 +5,7 @@ const app = express();
 
 consign()
     .include("libs/config.js")
-    .include("db.js")
-    .then("models")
+    .then("db.js")
     .then("libs/middlewares.js")
     .then("routes")
     .then("libs/boot.js")
