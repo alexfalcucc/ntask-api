@@ -18,7 +18,7 @@ module.exports = app => {
         // "/tasks": Insert a new task 
         })
     app.route("/tasks/:id")
-        .all((req, res) => {
+        .all((req, res, next) => {
         // same porpuse.
             delete req.body.id;
             next();
