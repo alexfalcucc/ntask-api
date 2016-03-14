@@ -1,11 +1,6 @@
 module.exports = app => {
      const Tasks = app.db.models.Tasks;
      app.route("/tasks")
-        .all((req, res) => {
-            // Routes Middleware of pre-run 
-            delete req.body.id;
-            next();
-        })
         .get((req, res) => {
             // "/tasks": task's list 
             Tasks.findAll({})
@@ -23,11 +18,6 @@ module.exports = app => {
                 });
         });
     app.route("/tasks/:id")
-        .all((req, res, next) => {
-            // same porpuse.
-            delete req.body.id;
-            next();
-        })
         .get((req, res) => {
             Tasks.findOne({where: req.params})
                 .then(result => {
