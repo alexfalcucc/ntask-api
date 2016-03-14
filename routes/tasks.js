@@ -49,5 +49,10 @@ module.exports = app => {
                 });
         })
         .delete((req, res) => {
+            Tasks.destroy({where: req.params})
+                .then(result => res.sendStatus(204))
+                .catch(erro => {
+                    res.status(412).json({msg: error.message}) ;
+                });
         });
 };
