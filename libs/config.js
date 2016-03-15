@@ -9,5 +9,7 @@ module.exports = {
             underscored: true
         }
 
-    }
+    },
+    jwtSecret: "NtasK-API",
+    jwtSession: {session: false}
 };
