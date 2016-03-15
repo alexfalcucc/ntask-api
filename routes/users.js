@@ -2,7 +2,7 @@ module.exports = app => {
     const Users = app.db.models.Users;
 
     app.get("/users/:id", (req, res) => {
-        Users.findAll(req.params.id, {
+        Users.findById(req.params.id, {
             attributes: ["id", "name", "email"]
         })
         .then(result => res.json(result))
@@ -17,7 +17,7 @@ module.exports = app => {
             res.status(412).json({msg: error.message});
         });
     });
-    app.post("/users/:id", (req, res) => {
+    app.post("/users", (req, res) => {
         Users.create(req.body)
         .then(result => res.json(result))
         .catch(error => {
