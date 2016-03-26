@@ -55,7 +55,7 @@ module.exports = app => {
                     user_id: req.user.id
                 }})
                 .then(result => res.sendStatus(204))
-                .catch(erro => {
+                .catch(error => {
                     res.status(412).json({msg: error.message}) ;
                 });
         });
